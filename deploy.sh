@@ -1,0 +1,1 @@
+scp -r ./ asazuke@s223.xrea.com:~/lp-practice-static
