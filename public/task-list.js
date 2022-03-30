@@ -1,17 +1,35 @@
 "use strict";
 
-const taskMonth = document.getElementById('taskmonth');     // 実施月
-const taskStatus = document.getElementById('taskstatus');   // 進捗
-const taskTitle = document.getElementById('tasktitle');     // タイトル
-const taskDetail = document.getElementById('taskdetail');   // 概要
-const submitButton = document.getElementById('submit');     // 登録ボタン
-const tasktListTbody = document.getElementById('tasklist'); // タスクリスト
+/**
+ * @type {object} HTMLの要素。
+ */
+const taskMonth = document.getElementById('taskmonth');
+const taskStatus = document.getElementById('taskstatus');
+const taskTitle = document.getElementById('tasktitle');
+const taskDetail = document.getElementById('taskdetail');
+const submitButton = document.getElementById('submit');
+const tasktListTbody = document.getElementById('tasklist');
 
 
-// { month: 実施月, status: 進捗, title: タイトル, detail: 概要 }
+/**
+ * @type {Array} タスク収納配列。
+ * 
+ * 要素
+ * @type {object}
+ * { month : 実施月,  status: 進捗,  title :タイトル,  detail: 概要}
+ */
 let tasks = [];
+
+
+
+/**
+ * サンプルのタスクデータを描画させる関数
+ */
 addSample();
 
+
+
+//登録ボタンをクリックした時の動作
 submitButton.onclick = () => {
   const task = {
     month: taskMonth.value,   // 実施月
@@ -23,14 +41,27 @@ submitButton.onclick = () => {
   displayTaskList();
 }
 
+
+
+/**
+ * タスクデータを配列に挿入する関数
+ * @param {object} task 
+ */
 function addtask (task) {
   tasks.push(task);
 }
 
+
+
+
+/**
+ * タスクリストを描画する関数。
+ */
 function displayTaskList() {
+
   tasktListTbody.innerText = "";
+
   for (let i = 0; i < tasks.length; i++) {
-    const task = tasks[i];
     const taskTr = document.createElement('tr');
     const monthTd = document.createElement('td');
     const statusTd = document.createElement('td');
@@ -45,10 +76,13 @@ function displayTaskList() {
       deleteTask(i);
     }
 
+    const task = tasks[i];
+
     monthTd.innerText = task.month;
     statusTd.innerText = task.status;
     titleTd.innerText = task.title;
     detailTd.innerText = task.detail;
+
 
     tasktListTbody.appendChild(taskTr);
     deleteTd.appendChild(deleteButton);
@@ -57,14 +91,29 @@ function displayTaskList() {
     taskTr.appendChild(titleTd);
     taskTr.appendChild(detailTd);
     taskTr.appendChild(deleteTd);
-  }
-}
 
+  }//for
+}//func
+
+
+
+
+/**
+ * タスク削除＆タスクリストの再描画をする関数。
+ * @param {number} deleteIndex 配列の要素番号。
+ */
 function deleteTask(deleteIndex) {
   tasks.splice(deleteIndex, 1);
   displayTaskList();
 }
 
+
+
+
+
+/**
+ * タスクのサンプルを描画する関数。
+ */
 function addSample(){
   const task = {
     month: '2021-07',
