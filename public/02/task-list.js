@@ -20,12 +20,14 @@ const tasktListTbody = document.getElementById('tasklist');
  */
 let tasks = [];
 
+const localStorageItem = localStorage.getItem("mytasks");
 
-
+if(!localStorageItem){
 /**
  * サンプルのタスクデータを描画させる関数
  */
-addSample();
+ addSample();
+}
 
 
 
