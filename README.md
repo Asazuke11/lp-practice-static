@@ -21,12 +21,13 @@ ssh asazuke@s223.xrea.com
 https://cp.xrea.com/site/tools/
 
 # リリース手順
-
-プロジェクトディレクトリで以下のコマンドを実行してください
+GithubActionsで自動リリース化済み。
+~~プロジェクトディレクトリで以下のコマンドを実行してください~~
 
 ```
-sh deploy.sh
+~~sh deploy.sh~~
 ```
+
 
 # 必要な情報
 「XREA.COM NEW SIGNUP」というメールに記載
