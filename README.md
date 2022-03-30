@@ -9,7 +9,7 @@
 https://github.com/Asazuke11/lp-practice-static/projects/1
 
 # サイトのURL
-asazuke@s223.xrea.com
+https://asazuke.shop/
 
 # ssh接続
 
