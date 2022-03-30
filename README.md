@@ -25,7 +25,3 @@ https://cp.xrea.com/site/tools/
 #### 💫　GithubActionsで自動リリース化済み。💫
 
 ~~プロジェクトディレクトリで以下のコマンドを実行してください~~
-
-
-# 必要な情報
-「XREA.COM NEW SIGNUP」というメールに記載
