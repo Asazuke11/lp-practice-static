@@ -37,8 +37,13 @@ submitButton.onclick = () => {
     title: taskTitle.value,   // タイトル
     detail: taskDetail.value  // 概要
   }
-  addtask(task);
-  displayTaskList();
+  //ガード句
+  if(!task.month || !task.status || !task.title || !task.detail){
+    alert('記入欄に空白があります。')
+  }else{
+    addtask(task);
+    displayTaskList();
+  }
 }
 
 
