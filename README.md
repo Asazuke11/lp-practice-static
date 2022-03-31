@@ -15,7 +15,7 @@ https://github.com/Asazuke11/lp-practice-static/projects/1
 ### 一章完了テスト01
 https://asazuke.shop/01/index.html
 ### 一章完了テスト02
-https://asazuke.shop/01/index.html
+https://asazuke.shop/02/index.html
 
 
 ## リリース手順
