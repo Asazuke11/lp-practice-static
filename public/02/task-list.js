@@ -20,12 +20,15 @@ const tasktListTbody = document.getElementById('tasklist');
  */
 let tasks = [];
 
+const localStorageItem = localStorage.getItem("mytasks");
 
-
+if(!localStorageItem){
 /**
  * サンプルのタスクデータを描画させる関数
  */
-addSample();
+ addSample();
+}
+
 
 
 
@@ -37,6 +40,7 @@ submitButton.onclick = () => {
     title: taskTitle.value,   // タイトル
     detail: taskDetail.value  // 概要
   }
+
   //ガード句
   if(!task.month || !task.status || !task.title || !task.detail){
     alert('記入欄に空白があります。')
@@ -44,6 +48,10 @@ submitButton.onclick = () => {
     addtask(task);
     displayTaskList();
   }
+
+  addtask(task);
+  displayTaskList();
+
 }
 
 
