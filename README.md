@@ -20,6 +20,4 @@ https://asazuke.shop/02/index.html
 
 ## リリース手順
 
-#### 💫　GithubActionsで自動リリース化済み。💫
-プッシュとともにページが更新されるので注意  
-~~プロジェクトディレクトリで以下のコマンドを実行してください~~
+#### 💫　GithubActionsでpushと同時に自動リリース化済み。💫
