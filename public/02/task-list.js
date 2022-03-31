@@ -17,22 +17,25 @@ const tasktListTbody = document.getElementById('tasklist');
  */
 let tasks = [];
 
+
+
 onLoad();
 
 
 
+/**
+ * ページを開いたときに動かす関数
+ */
 function onLoad() {
   const localStorageItem = localStorage.getItem("myTasks");
-  tasks = JSON.parse(localStorageItem);
-
-  if (tasks.length === 0) {
+  if(!localStorageItem || localStorageItem === "[]"){
     addSample();
-  } else {
+    displayTaskList();
+  }else{
+    tasks = JSON.parse(localStorageItem);
     displayTaskList();
   }
 }
-
-
 
 
 
