@@ -13,21 +13,25 @@ const tasktListTbody = document.getElementById('tasklist');
 
 /**
  * @type {Array} タスク収納配列。
- * 
- * 要素
- * @type {object}
- * { month : 実施月,  status: 進捗,  title :タイトル,  detail: 概要}
+ * @type {object} { month : 実施月,  status: 進捗,  title :タイトル,  detail: 概要}
  */
 let tasks = [];
 
-const localStorageItem = localStorage.getItem("mytasks");
+onLoad();
 
-if(!localStorageItem){
-/**
- * サンプルのタスクデータを描画させる関数
- */
- addSample();
+
+
+function onLoad() {
+  const localStorageItem = localStorage.getItem("myTasks");
+  tasks = JSON.parse(localStorageItem);
+
+  if (tasks.length === 0) {
+    addSample();
+  } else {
+    displayTaskList();
+  }
 }
+
 
 
 
@@ -42,17 +46,14 @@ submitButton.onclick = () => {
   }
 
   //ガード句
-  if(!task.month || !task.status || !task.title || !task.detail){
+  if (!task.month || !task.status || !task.title || !task.detail) {
     alert('記入欄に空白があります。')
-  }else{
+  } else {
     addtask(task);
     displayTaskList();
   }
-
-  addtask(task);
-  displayTaskList();
-
 }
+
 
 
 
@@ -60,8 +61,21 @@ submitButton.onclick = () => {
  * タスクデータを配列に挿入する関数
  * @param {object} task 
  */
-function addtask (task) {
+function addtask(task) {
   tasks.push(task);
+  save_LocalStorage(tasks);
+}
+
+
+
+
+/**
+ * ローカルストレージに配列を記憶する関数
+ * @param {Array} tasks 
+ */
+function save_LocalStorage(tasks) {
+  const tasksJSON = JSON.stringify(tasks);
+  localStorage.setItem("myTasks", tasksJSON);
 }
 
 
@@ -74,6 +88,11 @@ function displayTaskList() {
 
   tasktListTbody.innerText = "";
 
+  const get_LocalStorageData = localStorage.getItem("myTasks");
+  if (get_LocalStorageData) {
+    tasks = JSON.parse(get_LocalStorageData);
+  }
+
   for (let i = 0; i < tasks.length; i++) {
     const taskTr = document.createElement('tr');
     const monthTd = document.createElement('td');
@@ -81,6 +100,7 @@ function displayTaskList() {
     const titleTd = document.createElement('td');
     const detailTd = document.createElement('td');
     const deleteTd = document.createElement('td');
+    const hrTag = document.createElement('hr');
 
     const deleteButton = document.createElement('button');
 
@@ -105,6 +125,7 @@ function displayTaskList() {
     taskTr.appendChild(detailTd);
     taskTr.appendChild(deleteTd);
 
+
   }//for
 }//func
 
@@ -117,17 +138,16 @@ function displayTaskList() {
  */
 function deleteTask(deleteIndex) {
   tasks.splice(deleteIndex, 1);
+  save_LocalStorage(tasks);
   displayTaskList();
 }
-
-
 
 
 
 /**
  * タスクのサンプルを描画する関数。
  */
-function addSample(){
+function addSample() {
   const task = {
     month: '2021-07',
     status: '済',
