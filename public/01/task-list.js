@@ -10,6 +10,14 @@ const taskDetail = document.getElementById('taskdetail');
 const submitButton = document.getElementById('submit');
 const tasktListTbody = document.getElementById('tasklist');
 
+/**
+ * サンプル内容
+ */
+ const MONTH  = '2021-07';
+ const STATUS = '済';
+ const TITLE  = 'A社経営統合プロジェクト';
+ const DETAIL = '経営統合に伴う業務プロセス統合プロジェクト。\nプロジェクトリーダー（メンバー４人）として担当。\nＱＤＣ目標いずれも達成。ＣＳ評価で５をいただいた。';
+
 
 /**
  * @type {Array} タスク収納配列。
@@ -121,10 +129,10 @@ function deleteTask(deleteIndex) {
  */
 function addSample(){
   const task = {
-    month: '2021-07',
-    status: '済',
-    title: 'A社経営統合プロジェクト',
-    detail: '経営統合に伴う業務プロセス統合プロジェクト。\nプロジェクトリーダー（メンバー４人）として担当。\nＱＤＣ目標いずれも達成。ＣＳ評価で５をいただいた。'
+    month:  MONTH,
+    status: STATUS,
+    title:  TITLE,
+    detail: DETAIL
   }
   addtask(task);
   displayTaskList();
