@@ -17,6 +17,10 @@ https://asazuke.shop/01/index.html
 ### 一章完了テスト02
 https://asazuke.shop/02/index.html
 
+### 三章完了テスト03-04
+※コードのみ。  
+https://github.com/Asazuke11/lp-practice-static/blob/main/public/03-04/app.js
+
 
 ## リリース手順
 
